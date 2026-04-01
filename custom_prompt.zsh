@@ -35,12 +35,12 @@ format_exec_time() {
 			local hours=$((time_s / 3600))
 			local mins=$(((time_s % 3600) / 60))
 			local secs=$((time_s % 60))
-			echo "${BROWN}${hours}h${mins}m${secs}.${ms}s${RESET}"
+			echo "${BROWN}${hours}h${mins}m${secs}s${RESET}"
 		# More than one minute
 		elif (( time_s >= 60 )); then
 			local mins=$(((time_s % 3600) / 60))
 			local secs=$((time_s % 60))
-			echo "${BROWN}${mins}m${secs}.${ms}s${RESET}"
+			echo "${BROWN}${mins}m${secs}s${RESET}"
 		# More than one second
 		elif (( time_s >= 1 )); then
 			local secs=$((time_s % 60))
