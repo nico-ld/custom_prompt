@@ -44,7 +44,13 @@ format_exec_time() {
 		# More than one second
 		elif (( time_s >= 1 )); then
 			local secs=$((time_s % 60))
-			echo "${BROWN}${secs}.${ms}s${RESET}"
+			if (( ms < 10 )); then
+				echo "${BROWN}${secs}.00${ms}s${RESET}"
+			elif (( ms < 100 )); then
+				echo "${BROWN}${secs}.0${ms}s${RESET}"
+			else
+				echo "${BROWN}${secs}.${ms}s${RESET}"
+			fi
 		# Less than one second
 		else
 			if (( ms < 10 )); then
